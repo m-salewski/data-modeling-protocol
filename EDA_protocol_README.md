@@ -37,6 +37,9 @@ From the raw data itself, look for:
 For all quantitative (numerical) features, look at
 * statistical measures (**stats**)
     * mean, std, median, quantiles, mins/maxs
+    * Useful commands
+        * for tabular data, `pandas.DataFrame.describe()` 
+        
 * **distributions**
     * when possible, characterize distributions (type of distn)
 
