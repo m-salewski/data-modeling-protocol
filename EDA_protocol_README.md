@@ -21,10 +21,10 @@ From the raw data itself, look for:
             * if so, how important is the missing data?
     * consider if missing data is missing for a reason or just randomly dropped
         * if a reason or pattern, then consider if it is sensible that it is missing
-    * (**advanced**) for important categories, it may be useful to fill in the missing data
+    * (**advanced**) for important categories, it may be useful to impute the missing data
         * dummy values (0 or "None")
         * most frequent value if makes sense
-        * interpolations: compute distribution, sample from it $\to$ _dubious!!!_
+        * interpolations: compute distribution, sample from it 
 * Useful commands
     * for tabular data, `pandas.DataFrame.info()` 
         * tells how many non-null rows for each column (_ie_ feature)
