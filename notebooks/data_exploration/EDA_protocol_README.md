@@ -43,15 +43,15 @@ For all quantitative (numerical) features, look at
 * **distributions**
     * when possible, characterize distributions (type of distn)
 
-        * <img src="house-prices-2/notebooks/distplot_of_target.png" alt="drawing" width="500"/>
+        * <img src="figures/distplot_of_target.png" alt="drawing" width="500"/>
 
-        * <img src="boston-reloaded/notebooks/distributions_and_boxplot.png" alt="drawing" width="500"/>
+        * <img src="figures/distributions_and_boxplot.png" alt="drawing" width="500"/>
 
     * consider whether discrete or continuous
     * consider whether any seems to match the target feature distribution
     * `df.hist()` will do this with any number of columns
     
-    * <img src="boston-reloaded/notebooks/multiple_distplots.png" alt="drawing" width="500"/>
+    * <img src="figures/multiple_distplots.png" alt="drawing" width="500"/>
 
 * useful commands
     * for tabular data, `pandas.DataFrame.describe()` 
@@ -71,27 +71,27 @@ Quantify relationships between features, as part of the _feature **selection**_ 
     * test for and remove outliers when necessary
     * quick inspections
         * barcharts (quick visual)
-        * <img src="boston-reloaded/notebooks/correlation_with_target_barchart.png" alt="drawing" width="400"/>
+        * <img src="figures/correlation_with_target_barchart.png" alt="drawing" width="400"/>
     * pairwise scatterplots are good to check the nature of the correlation
         * `sns.pairplot(df)`
-        * <img src="house-prices-2/notebooks/pairplots_with_target.png" alt="drawing" width="500"/>
+        * <img src="figures/pairplots_with_target.png" alt="drawing" width="500"/>
  
 * check **pair correlations** between all feature pairs (without target)
     * test for and remove outliers when necessary
     * test for correlated features in order to reduce the number of features
     * pair-correlation matrix for quick inspection
         * `sns.heatmap(df.drop('target_feature', axis=1).corr())`
-        * <img src="wine-quality/notebooks/correlation_matrix_with_target.png" alt="drawing" width="400"/>
+        * <img src="figures/correlation_matrix_with_target.png" alt="drawing" width="400"/>
 
-        `![](wine-quality/notebooks/correlation_matrix_with_target.png  =250x)`
+        `![](figures/correlation_matrix_with_target.png  =250x)`
 
         * can also limit the columns to those of the largest values for a smaller matrix
     * look for features which are correlated with the target, but also together
         * this allows to remove redundant information and simplify the data
         
-        * <img src="wine-quality/notebooks/pairplots_with_hued_kde.png" alt="drawing" width="400"/>
+        * <img src="figures/pairplots_with_hued_kde.png" alt="drawing" width="400"/>
         
-        * `![](wine-quality/notebooks/pairplots_with_hued_kde.png  =250x)`
+        * `![](figures/pairplots_with_hued_kde.png  =250x)`
     
     * pairwise scatterplots are good to check the nature of the correlation
         * `sns.pairplot(df)`
@@ -105,6 +105,6 @@ Quantify relationships between features, as part of the _feature **selection**_ 
             * alternatively, use `sns.swarmplot(x="test_feature", y="target_feature", data=df)`
                 * gives an idead of the distribution of values, 
                 * does not scale well to large counts $\to$ collisions on limits
-        * <img src="boston-reloaded/notebooks/categorical_distributions.png" alt="drawing" width="500"/>
+        * <img src="figures/categorical_distributions.png" alt="drawing" width="500"/>
 
 
