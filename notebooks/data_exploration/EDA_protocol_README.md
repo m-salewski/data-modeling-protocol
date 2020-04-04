@@ -79,6 +79,14 @@ Quantify relationships between features, as part of the _feature **selection**_ 
 * check **pair correlations** between all feature pairs (without target)
     * test for and remove outliers when necessary
     * test for correlated features in order to reduce the number of features
+        * _ie_ **multicollinearity** :
+            * a characteristic of the data matrix $X$ where a predictive feature can be linearly estimated from others
+            * $X$ has less than full rank
+                * $X$ is _ill-conditioned_, the coefficient estimates of the multiple regression may change erratically in response to small changes in the model or the data
+                * the moment matrix $X^{\mathsf {T}}X$ cannot be inverted. 
+                * _e.g._ for a general linear model $y=X\beta +\epsilon$, the ordinary least squares estimator $\hat {\beta }_{OLS}=(X^{\mathsf {T}}X)^{-1}X^{\mathsf {T}}y$ does not exist.            
+            * only affects calculations of individual predictors: a multivariate regression model with collinear predictors can indicate how well the entire bundle of predictors predicts the outcome variable, but it may not give valid results about any individual predictor, or about which predictors are redundant with respect to others.   
+        * can remedy (or try) with _PCA_, which aggregates features in statistically meaningful ways into linearly independent features; the problem is that it can obscure interpretability
     * pair-correlation matrix for quick inspection
         * `sns.heatmap(df.drop('target_feature', axis=1).corr())`
         * <img src="figures/correlation_matrix_with_target.png" alt="drawing" width="400"/>
@@ -95,6 +103,10 @@ Quantify relationships between features, as part of the _feature **selection**_ 
     
     * pairwise scatterplots are good to check the nature of the correlation
         * `sns.pairplot(df)`
+        
+        * <img src="../extras/figures/pairplots_with_bars_contours_and_scatters.png" alt="drawing" width="500"/>
+
+        `![](figures/correlation_matrix_with_target.png  =250x)`        
     * for categorical features, 
         * compute a histogram per category
             * `df.groupby('test_feature')['target_feature'].count().plot(type='bar')`

@@ -1,0 +1,23 @@
+// The Round Table
+digraph {
+	S [label="feature
+selection"]
+	O [label=objective]
+	E [label="feature
+engineering"]
+	M [label="model
+selection"]
+	E -> S [constraint=true dir=both]
+	E -> O [constraint=true dir=both]
+	E -> M [constraint=true dir=both]
+	S -> O [constraint=true dir=both]
+	O -> M [constraint=true dir=both]
+	S -> M [constraint=true dir=both]
+	{
+		rank=same
+		S
+		E
+		rank=min
+		M
+	}
+}
