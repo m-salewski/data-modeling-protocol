@@ -49,8 +49,11 @@ The selection process has four intrinsically inter-coupled topics:
 **NOTE** this is usually automated (or automatable):
 * there are methods to chose the best features from a set of data (_ie_ **feature selection**:);
     * there may still be a need for **feature engineering**
-* Ensembles (and voting) achieve the **model selection**
-
+* Ensembles of Methods and voting achieve the **model selection**
+    * **Note** The distinction here is "Ensembles of Methods" versus "Ensemble classifiers"
+        * Ensembles of Methods: mixture of high-level methods/classifiers; e.g using a collection of XGBoost, Ridge- and Lasso- regressors
+        * Ensemble classifiers: high-level methods composed of low-level (weak) classifiers; e.g. Random forrest (decision-tree) methods and Gradient-boosting methods 
+    
 <hr style="border: 4px dotted #aaaaaa; border-style: none none dotted; color: #fff; background-color: #fff;"/>
 
 
@@ -69,3 +72,14 @@ The second part is choosing the best parameters for the model; this may be best 
 ## Appendix
 
 ### Pipelines
+
+Pipelines are composed of steps, each of which has to be some kind of transformer 
+* except the last step which can be a transformer or an estimator such as a machine learning model. 
+transformers (see [sklearn.preprocessing](sklearn.preprocessing))
+* Normalizer
+* StandardScaler
+* One Hot Encoder
+**Note** any custom transformer should seamlessly integrate with my existing pipeline
+
+When the dataset contains a mix of categorical and numerical (independent) variables, they will likely need to pre-processed in different ways and separately, and initially they’ll go through separate pipelines to be pre-processed appropriately and then later combined. 
+* For both pipelines, extract the appropriate columns for pre-processing.

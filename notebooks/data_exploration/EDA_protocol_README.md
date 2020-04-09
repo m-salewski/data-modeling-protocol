@@ -1,6 +1,10 @@
 # Exploratory Data Analysis protocol
 A standardized protocol for exploring data, and selecting/engineering features.
 
+> **Because EDA is Tedious and Takes Forever**
+
+> We’re all guilty of performing a cursory EDA, if any at all (“let’s just get to the model training!”). [...] EDA can take a considerable amount of setup. Coding those same, slightly modified functions for the hundredth time is something we all do. And remembering which visualization types work best for which feature types and feature/target-type combination is not easy.
+
 ## Inspect data
 
 <hr style="border: 4px dotted #aaaaaa; border-style: none none dotted; color: #fff; background-color: #fff;"/>
@@ -13,8 +17,20 @@ From the raw data itself, look for:
     * too many features $\to$ need to likely reduce
 * **feature types**: quantitative and qualitative (ie how are features represented?)
     * multiple variable types - continuous, dicrete, and categorical
-    * multiple data types - int, string, float, datetime
-    * consider mapping categorical features to values
+    * multiple (raw) data types - int, string, float, datetime
+    * consider mapping categorical features to values - _tranforms_
+    * further breakdown of types (from `mlmachine`):
+        * `'boolean'`
+        * `'nominal'`: an integer classification
+        * `'ordinal'`: an ordered integer classification
+        * `'continuous'`: float
+        * `'count'`: continuous integer
+        * `'string'`: (classifier, likely to be encoded)
+        * `'date'`
+        * `'category'`: a string classification
+        * `'number'`: also an int classification
+        * **Note** some variables can be more than one of these types, _e.g._ a coded cataegory as nominal.
+    * **Note** when dealing with different feature types, they will need to be pre-processed before they are re-combined ino the model 
 * **fill rate**: NaNs/missing vals (empty or '-1'-type?)
     * check for frequency of NaNs
         * consider dropping feature if too many missings w.r.t threshold
@@ -31,6 +47,8 @@ From the raw data itself, look for:
         * tells the data type for each column
 
 <hr style="border: 4px dotted #aaaaaa; border-style: none none dotted; color: #fff; background-color: #fff;"/>
+
+**Note** some packages classify these types and do the fill-analysis already.
 
 ## First-order inspection: feature properties
 
