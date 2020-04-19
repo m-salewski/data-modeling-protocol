@@ -4,10 +4,37 @@
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 
+from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import OrdinalEncoder
 
-def get_cat_encoding(df, cols_to_encode):
+class OrdinalEncoderNans(BaseEstimator, TransformerMixin):
     
+    #Class Constructor
+    def __init__( self, _cats_to_map):
+        self._cats_to_map = _cats_to_map
+        
+    #Return self, nothing else to do here
+    def fit( self, X, y = None ):
+        return self 
+    
+    #Custom transform method we wrote that creates aformentioned features and drops redundant ones 
+    def transform(self, X, y = None):
+            
+        # Map all but the last the categories to ints
+        X = X.replace( self._cats_to_map[:-1], np.arange(len(self._cats_to_map[:-1])))
+                    
+        #Converting any infinity values in the dataset to Nan
+        X = X.replace( self._cats_to_map[-1], np.nan )
+        
+        shape_ = X.shape[0]
+        #returns a numpy array
+        return X.values
+
+
+def get_cat_encoding(df, cols_to_encode):
+    """
+    A more raw version of the above class
+    """
     # 1. Copy the data
     # 2. ~~data inspection~~
     #    * deep-dive into some cols
