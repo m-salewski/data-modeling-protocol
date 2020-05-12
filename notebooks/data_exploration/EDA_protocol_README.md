@@ -49,6 +49,7 @@ From the raw data itself, look for:
 <hr style="border: 4px dotted #aaaaaa; border-style: none none dotted; color: #fff; background-color: #fff;"/>
 
 **Note** some packages classify these types and do the fill-analysis already.
+    * `pandas-profiling`: see [pandas-profiling-feature-pravin-borate](https://www.linkedin.com/pulse/pandas-profiling-feature-pravin-borate/)
 
 ## First-order inspection: feature properties
 
