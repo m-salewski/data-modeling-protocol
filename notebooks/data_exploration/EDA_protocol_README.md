@@ -15,6 +15,7 @@ From the raw data itself, look for:
 * **structure**/**format**: tabular or non-relational (ie how are features and values stored?)
 * **feature count**
     * too many features $\to$ need to likely reduce
+        * having more features increases the likelihood of overfitting
 * **feature types**: quantitative and qualitative (ie how are features represented?)
     * multiple variable types - continuous, dicrete, and categorical
     * multiple (raw) data types - int, string, float, datetime
@@ -41,6 +42,7 @@ From the raw data itself, look for:
         * dummy values (0 or "None")
         * most frequent value if makes sense
         * interpolations: compute distribution, sample from it $\to$ _dubious!!!_
+        * see [Imputing](https://scikit-learn.org/stable/modules/impute.html#impute)
 * Useful commands
     * for tabular data, `pandas.DataFrame.info()` 
         * tells how many non-null rows for each column (_ie_ feature)
@@ -72,6 +74,9 @@ For all quantitative (numerical) features, look at
     
     * <img src="figures/multiple_distplots.png" alt="drawing" width="500"/>
 
+* **variance** 
+    * 
+
 * useful commands
     * for tabular data, `pandas.DataFrame.describe()` 
         * works _only_ for numerical data
@@ -82,6 +87,8 @@ For all quantitative (numerical) features, look at
 <hr style="border: 4px dotted #aaaaaa; border-style: none none dotted; color: #fff; background-color: #fff;"/>
 
 ## Second-order inspection: relationships between features
+
+### Quantitative relationships
 
 Quantify relationships between features, as part of the _feature **selection**_ as well as _feature **engineering**_ processes
 
@@ -138,4 +145,8 @@ Quantify relationships between features, as part of the _feature **selection**_ 
                 * does not scale well to large counts $\to$ collisions on limits
         * <img src="figures/categorical_distributions.png" alt="drawing" width="500"/>
 
+## Third-order inspection: 
 
+### Qualitative relationships
+ 
+Some features may be present in the data which have absolutely little or no value.
