@@ -33,3 +33,22 @@ def get_corr_feature_drop(df, threshold=0.95):
     to_drop = [column for column in upper.columns if any(upper[column] > threshold)]
 
     return to_drop
+
+def feature_selector():
+    pass
+
+def feature_separator():
+    # Separates numerical from categorical features
+    pass
+
+def corr_based_feature_selector():
+    # Drops features if they are highly correlated
+    pass
+
+def ordinal_encoder():
+    # Ordinal encoder of categorical features
+    pass
+
+def one_hot_encoder():
+    # One-hot encoder of categorical features
+    pass
