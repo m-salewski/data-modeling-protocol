@@ -8,6 +8,15 @@ import json
 from helpers import get_parser, setup_logging, get_config
 
 def main(df):
+    # Target feature selection
+
+    # Categorical/Numerical variables
+
+    # Drop based on NAs
+
+    # Drop based on correlation
+
+    
     pass
 
 
