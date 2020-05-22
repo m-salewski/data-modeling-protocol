@@ -2,26 +2,25 @@ import pandas as pd
 import argparse
 import os
 import sys
+import logging
+import json
 
-from helpers import get_parser   
+from helpers import get_parser, setup_logging, get_config
 
 def main(dataframe):
-
-    # Tranformation functions
-
-    # 
     pass
 
 
 if __name__ == "__main__":
+    PATH_TO_CONFIG = "config.json"
+    config = get_config(PATH_TO_CONFIG)
 
-
-    args = get_parser()
-    #"../datasets/sberbank-russian-housing-market/train.csv"
-
-
+    setup_logging(config)
     
-    df = pd.read_csv(args.path, infer_datetime_format=True, parse_dates=['timestamp'])
+    path_to_dataset = get_parser()
     
+    df = pd.read_csv(path_to_dataset, infer_datetime_format=True, parse_dates=['timestamp'])
+    logging.info("Dataset loaded")  
+
     main(df)
 
