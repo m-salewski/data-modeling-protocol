@@ -20,7 +20,6 @@ if __name__ == "__main__":
     path_to_dataset = config["dataset"]["path"]
     
     df = pd.read_csv(path_to_dataset, infer_datetime_format=True, parse_dates=['timestamp'])
-    print(path_to_dataset)
 
     logging.info("Dataset loaded")  
     logging.info(f"Dataset has the following shape {df.shape}")
