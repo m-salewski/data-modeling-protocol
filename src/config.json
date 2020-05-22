@@ -1,8 +1,14 @@
 {
 "logging":
-{
-    "enabled": true,
-    "filename": "test"
-}
+    {
+        "enabled": true,
+        "filename": "test"
+    },
+
+"dataset":
+    {
+        "path": "../datasets/sberbank-russian-housing-market/train.csv",
+        "target_feature": "price_doc"
+    }
 
 }
