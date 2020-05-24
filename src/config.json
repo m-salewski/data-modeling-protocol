@@ -9,7 +9,12 @@
     {
         "dataset_doc_1": "Information about dataset location and features",
         "path": "../datasets/sberbank-russian-housing-market/train.csv",
-        "target_feature": "price_doc"
+        "target_feature": "price_doc",
+        "ignore_columns": ["id","timestamp"]
+    },
+"output": 
+    {
+        "fill_rates": "../output/fill_rates.csv",
+        "fill_rates_plot": "../output/unfilled_plot.png"
     }
-
 }

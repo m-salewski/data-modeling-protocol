@@ -24,11 +24,7 @@ def get_config(path_to_config):
 
 def get_parser():
     # todo unused - remove?
-    parser = argparse.ArgumentParser(description='Entry point for Data modeling protocol')
-    parser.add_argument('Path', type=str, help="Give the path to the dataset")
-    path = parser.parse_args().Path
-
-    if os.path.exists(path):
-        return path
-    else:
-        logging.error(f"Problem while reading dataset at {path}")
+    parser = argparse.ArgumentParser(description='Entry point for Data modeling protocol', usage=" \n Modify config.json file")
+    if len(sys.argv[1:])==0:
+        parser.print_help()
+    #parser.exit()
